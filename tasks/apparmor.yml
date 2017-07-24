@@ -1,0 +1,9 @@
+---
+
+- name: Install apparmor utilities
+  apt:
+    name: apparmor-utils
+
+- name: Swith to 'complain' on tcpdump
+  shell: aa-complain /usr/sbin/tcpdump
+  changed_when: false

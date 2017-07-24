@@ -8,3 +8,4 @@ tcpdump_pcap_files_num: 5
 tcpdump_file: /var/log/tcpdump/dump.pcap
 tcpdump_compress: yes
 tcpdump_filter: ''
+tcpdump_apparmor_complain: yes

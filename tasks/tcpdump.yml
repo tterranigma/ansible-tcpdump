@@ -7,8 +7,9 @@
   become: yes
 
 - name: Create log folder
-  file: /var/log/tcpdump
-  state: directory
+  file:
+    path: /var/log/tcpdump
+    state: directory
 
 - name: Install the systemd service
   template:

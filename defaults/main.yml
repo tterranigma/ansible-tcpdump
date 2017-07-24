@@ -1,2 +1,10 @@
 ---
-# defaults file for ansible-tcpdump
+
+tcpdump_enabled: yes    # whether the role is enabled or not
+tcpdump_interface: ens4
+tcpdump_max_packet_size: 250000
+tcpdump_max_pcap_size: 100
+tcpdump_pcap_files_num: 5
+tcpdump_file: /var/log/tcpdump/dump.pcap
+tcpdump_compress: yes
+tcpdump_filter: ''

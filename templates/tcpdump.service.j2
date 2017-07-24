@@ -1,0 +1,24 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=TcpDump Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/nohup /usr/sbin/tcpdump \
+                  -i {{ tcpdump_interface }} \
+                  -s {{ tcpdump_max_packet_size }} \
+                  -W {{ tcpdump_pcap_files_num }} \
+                  -C {{ tcpdump_max_pcap_size }} \
+                  -w {{ tcpdump_file }}
+                  {% if tcpdump_compress %}
+                  -z gzip
+                  {% endif %}
+                  {% if tcpdump_filter %}
+                  {{ tcpdump_filter }}
+                  {% endif %}
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
